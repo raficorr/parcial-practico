@@ -1,0 +1,1557 @@
+{
+	"info": {
+		"_postman_id": "cf729318-3b16-464f-9c8f-53fd7b6893a6",
+		"name": "Aplicacion",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19333874"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Add a product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"chocorramo\",\r\n    \"price\": \"2500\",\r\n    \"type\": \"perecedero\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add a product",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"chocorramo\",\r\n    \"price\": \"2500\",\r\n    \"type\": \"perecedero\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/product",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"name\": \"chocorramo\",\r\n    \"price\": \"2500\",\r\n    \"type\": \"perecedero\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Add a product invalid",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"chocorramo\",\r\n    \"price\": \"2500\",\r\n    \"type\": \"perecedero\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add a product invalid",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"chocorramo\",\r\n    \"precio\": \"2500\",\r\n    \"tipo\": \"no valido\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/product",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The product with the given id was not found\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all products",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"name\": \"chocorramo\",\r\n    \"price\": \"2500\",\r\n    \"type\": \"perecedero\"\r\n},\r\n{\r\n     \"id\": \"48a9ab90-1276-11ed-861d-0242ac120004\",\r\n    \"name\": \"queso\",\r\n    \"price\": \"12500\",\r\n    \"type\": \"perecedero\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Get product by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/{{id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"{{id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get product by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products/48a9ab90-1276-11ed-861d-0242ac120002",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										"48a9ab90-1276-11ed-861d-0242ac120002"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"name\": \"chocorramo\",\r\n    \"price\": \"2500\",\r\n    \"type\": \"perecedero\"\r\n}\r\n"
+						}
+					]
+				},
+				{
+					"name": "Get an invalid product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get an invalid product",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products/00000000-0000-0000-0000-000000000000",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										"00000000-0000-0000-0000-000000000000"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The product with the given id was not found\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Update a product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Ramito\",\r\n    \"price\": \"2500\",\r\n    \"type\": \"perecedero\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/products/{{productId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"{{productId}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update a product",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Ramito\",\r\n    \"price\": \"2500\",\r\n    \"type\": \"perecedero\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/products/{{productId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										"{{productId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n   \"id\": \"144602ac-1278-11ed-861d-0242ac120002\",\r\n   \"name\": \"Ramito\",\r\n   \"price\": \"2500\",\r\n   \"type\": \"perecedero\"\r\n\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete a product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/{{id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"{{id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products/{{id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Delete an invalid product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/products/00000000-0000-0000-0000-000000000000",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										"00000000-0000-0000-0000-000000000000"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The product with the given id was not found\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Update an invalid product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Ramito\",\r\n    \"price\": \"2500\",\r\n    \"type\": \"perecedero\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/products/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update an invalid product",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Ramito\",\r\n    \"precio\": \"2500\",\r\n    \"tipo\": \"perecedero\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/products/00000000-0000-0000-0000-000000000000",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"products",
+										"00000000-0000-0000-0000-000000000000"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The product with the given id was not found\"\r\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Store",
+			"item": [
+				{
+					"name": "Add a Store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"D1\",\r\n    \"city\": \"FUN\",\r\n    \"address\": \"Calle 16 bis\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/stores",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stores"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add a store",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"D1\",\r\n    \"city\": \"fun\",\r\n    \"address\": \"calle 16 bis\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/stores",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"stores"
+									]
+								}
+							},
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"name\": \"D1\",\r\n    \"city\": \"fun\",\r\n    \"address\": \"calle 16 bis\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Add a store invalid",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"d1\",\r\n    \"city\": \"bogo\",\r\n    \"address\": \"calle 16 bis\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/stores",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stores"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add a store invalid",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"D1\",\r\n    \"city\": \"bogo\",\r\n    \"address\": \"calle  16 bis\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/stores",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"stores"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The store with the given id was not found\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all stores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/stores/{{id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stores",
+								"{{id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all stores",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/stores",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"stores"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"name\": \"D1\",\r\n    \"city\": \"fun\",\r\n    \"address\": \"calle 16 bis\"\r\n},\r\n{\r\n     \"id\": \"48a9ab90-1276-11ed-861d-0242ac120004\",\r\n    \"name\": \"isimo\",\r\n    \"city\": \"bog\",\r\n    \"address\": \"carrera 67\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Get store by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/stores/{{id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stores",
+								"{{id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get store by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/stores/48a9ab90-1276-11ed-861d-0242ac120002",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"stores",
+										"48a9ab90-1276-11ed-861d-0242ac120002"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"name\": \"D1\",\r\n    \"city\": \"fun\",\r\n    \"address\": \"calle 16 bis\"\r\n}\r\n"
+						}
+					]
+				},
+				{
+					"name": "Get an invalid store",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/products/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"products",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get an invalid store",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/stores/00000000-0000-0000-0000-000000000000",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"stores",
+										"00000000-0000-0000-0000-000000000000"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The store with the given id was not found\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Update a store",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"D2\",\r\n    \"price\": \"2500\",\r\n    \"type\": \"perecedero\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/stores/{{storeid}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stores",
+								"{{storeid}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update a store",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Ramito\",\r\n    \"precio\": \"2500\",\r\n    \"tipo\": \"perecedero\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/stores/{{productId}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"stores",
+										"{{productId}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n   \"id\": \"144602ac-1278-11ed-861d-0242ac120002\",\r\n   \"name\": \"Ramito\",\r\n   \"city\": \"fun\",\r\n   \"address\": \"calle 16 bis\"\r\n\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Update an invalid store",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Ramito\",\r\n    \"precio\": \"2500\",\r\n    \"tipo\": \"perecedero\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/stores/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stores",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update a invalid store",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"D1\",\r\n    \"city\": \"fun\",\r\n    \"address\": \"carrera 7b\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/stores/00000000-0000-0000-0000-000000000000",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"stores",
+										"00000000-0000-0000-0000-000000000000"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The store with the given id was not found\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete a store",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/stores/{{id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stores",
+								"{{id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete a store",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/stores/{{id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"stores",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Delete a n invalid store",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/stores/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stores",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete a invalid store",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/stores/00000000-0000-0000-0000-000000000000",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"stores",
+										"00000000-0000-0000-0000-000000000000"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The product with the given id was not found\"\r\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "store-product",
+			"item": [
+				{
+					"name": "Add a store to  a product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"D1\",\r\n    \"city\": \"FUN\",\r\n    \"address\": \"Calle 16 bis\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/stores",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stores"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add a store to a product",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"D1\",\r\n    \"city\": \"fun\",\r\n    \"address\": \"calle 16 bis\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/stores/{{storeId}}/products{{product_id_1}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"stores",
+										"{{storeId}}",
+										"products{{product_id_1}}"
+									]
+								}
+							},
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"name\": \"D1\",\r\n    \"city\": \"fun\",\r\n    \"address\": \"calle 16 bis\",\r\n    \"products\": [\r\n        {\r\n    \"name\": \"chocorramo\",\r\n    \"price\": \"2500\",\r\n    \"type\": \"perecedero\"\r\n}\r\n\r\n    ]\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Add a store to a product  invalid",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"d1\",\r\n    \"city\": \"bogo\",\r\n    \"address\": \"calle 16 bis\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/stores/{{storeId}}/product/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stores",
+								"{{storeId}}",
+								"product",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add a store to a product invalid",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"D1\",\r\n    \"city\": \"bogo\",\r\n    \"address\": \"calle  16 bis\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/stores/00000000-0000-0000-0000-000000000000/products{{product_id_1}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"stores",
+										"00000000-0000-0000-0000-000000000000",
+										"products{{product_id_1}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The store with the given id was not found\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all stores of a  product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/stores/{{storeId}}/products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stores",
+								"{{storeId}}",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all stores of a products",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/stores/{{storeId}}/products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"stores",
+										"{{storeId}}",
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"name\": \"D1\",\r\n    \"city\": \"fun\",\r\n    \"address\": \"calle 16 bis\"\r\n},\r\n{\r\n     \"id\": \"48a9ab90-1276-11ed-861d-0242ac120004\",\r\n    \"name\": \"isimo\",\r\n    \"city\": \"bog\",\r\n    \"address\": \"carrera 67\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Get store by id  of a product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/stores/{{id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stores",
+								"{{id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get store by id of a product",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/stores/{{storeId}}/products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"stores",
+										"{{storeId}}",
+										"products"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"name\": \"D1\",\r\n    \"city\": \"fun\",\r\n    \"address\": \"calle 16 bis\"\r\n},"
+						}
+					]
+				},
+				{
+					"name": "Get an invalid store of a product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/stores/00000000-0000-0000-0000-000000000000/products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stores",
+								"00000000-0000-0000-0000-000000000000",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get an invalid store",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/stores/00000000-0000-0000-0000-000000000000/products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"stores",
+										"00000000-0000-0000-0000-000000000000",
+										"products"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The store with the given id was not found\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Update a store  of a product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"D3\",\r\n    \"price\": \"2500\",\r\n    \"type\": \"perecedero\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/stores/{{soreid}}/products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stores",
+								"{{soreid}}",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update a store",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Ramito\",\r\n    \"precio\": \"2500\",\r\n    \"tipo\": \"perecedero\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/stores/{{soreid}}/products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"stores",
+										"{{soreid}}",
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n   \"id\": \"144602ac-1278-11ed-861d-0242ac120002\",\r\n   \"name\": \"D3\",\r\n   \"city\": \"2500\",\r\n   \"address\": \"calle 16 bis\",\r\n   \"products\":[\r\n       {\r\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\r\n    \"name\": \"chocorramo\",\r\n    \"price\": \"2500\",\r\n    \"type\": \"perecedero\"\r\n   ]\r\n}\r\n   \r\n\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Update an invalid store of a product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Ramito\",\r\n    \"precio\": \"2500\",\r\n    \"tipo\": \"perecedero\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/stores/00000000-0000-0000-0000-000000000000/products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stores",
+								"00000000-0000-0000-0000-000000000000",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update a invalid store",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"D1\",\r\n    \"city\": \"fun\",\r\n    \"address\": \"carrera 7b\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/stores/00000000-0000-0000-0000-000000000000/products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"stores",
+										"00000000-0000-0000-0000-000000000000",
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The store with the given id was not found\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete a store of a product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/stores/{{id}}/products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stores",
+								"{{id}}",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete a store",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/stores/{{id}}/products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"stores",
+										"{{id}}",
+										"products"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Delete an invalid store of a product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/store/00000000-0000-0000-0000-000000000000/products",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"store",
+								"00000000-0000-0000-0000-000000000000",
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete a invalid store",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/store/00000000-0000-0000-0000-000000000000/products",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"store",
+										"00000000-0000-0000-0000-000000000000",
+										"products"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"The store with the given id was not found\"\r\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

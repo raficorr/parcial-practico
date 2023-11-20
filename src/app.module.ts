@@ -23,6 +23,7 @@ import { StoreModule } from './store/store.module';
       synchronize: true,
       keepConnectionAlive: true,
     }),
+    ProductModule,
   ],
   controllers: [AppController],
   providers: [AppService],
