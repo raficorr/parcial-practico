@@ -5,10 +5,12 @@ import { ProductModule } from './product/product.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProductEntity } from './product/product.entity';
 import { StoreEntity } from './store/store.entity';
+import { StoreModule } from './store/store.module';
 
 @Module({
   imports: [
     ProductModule,
+    StoreModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',

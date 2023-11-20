@@ -15,13 +15,13 @@ export class ProductService {
   ) {}
 
   async findAll(): Promise<ProductEntity[]> {
-    return await this.productRepository.find({ relations: ['stores'] });
+    return await this.productRepository.find({ relations: ['store'] });
   }
 
   async findOne(id: string): Promise<ProductEntity> {
     const product: ProductEntity = await this.productRepository.findOne({
       where: { id },
-      relations: ['stores'],
+      relations: ['store'],
     });
     if (!product)
       throw new BussinessLogicException(

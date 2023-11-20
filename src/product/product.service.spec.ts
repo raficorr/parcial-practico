@@ -66,7 +66,7 @@ describe('ProductService', () => {
       name: faker.word.noun(),
       price: faker.word.noun(),
       type: faker.word.noun(),
-      stores: []
+      store: []
     }
 
     const newProduct: ProductEntity = await service.create(product);
